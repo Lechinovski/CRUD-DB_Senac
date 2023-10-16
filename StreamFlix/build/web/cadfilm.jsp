@@ -12,11 +12,11 @@
     <body>
         <%
             //Receber os dados digitados no formulário cadfilm.html
-            int l, i, d;
+            int l, c, d;
             String n, g;
             n = request.getParameter("nome");
             g = request.getParameter("genero");
-            i = Integer.parseInt(request.getParameter("classificacao"));
+            c = Integer.parseInt(request.getParameter("classificacao"));
             l = Integer.parseInt(request.getParameter("lancamento"));
             d = Integer.parseInt(request.getParameter("duracao"));
             try {
@@ -29,7 +29,7 @@
                 st = conecta.prepareStatement("INSERT INTO filmes(nome, genero, classificacao, lancamento, duracao) VALUES(?,?,?,?,?)");
                 st.setString(1, n);
                 st.setString(2, g);
-                st.setInt(3, i);
+                st.setInt(3, c);
                 st.setInt(4, l);
                 st.setInt(5, d);
                 st.executeUpdate(); //Executa o comando INSERT

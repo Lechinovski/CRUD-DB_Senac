@@ -13,8 +13,8 @@
     <body>
         <%
             //Recebe o código do produto a alterar
-            int c;
-            c = Integer.parseInt(request.getParameter("codigo"));
+            int codigo;
+            codigo = Integer.parseInt(request.getParameter("codigo"));
             //Fazer a conexão com o Banco de Dados
             Connection conecta;
             PreparedStatement st;
@@ -22,7 +22,7 @@
             conecta = DriverManager.getConnection("jdbc:mysql://localhost:3306/filme", "root", "060705");
             //Buscar o produto pelo código recebido
             st = conecta.prepareStatement("SELECT * FROM filmes WHERE codigo = ?");
-            st.setInt(1, c);
+            st.setInt(1, codigo);
             ResultSet resultado = st.executeQuery(); //Executa o SELECT
             //Verifica se o produto de código informado foi encontrado
             if (!resultado.next()) { //se não encontrou o produto
@@ -43,7 +43,15 @@
                 <input type="text" name="genero" id="genero" value="<%= resultado.getString("genero")%>">
             </p> 
             <p>
-                <label for="duracao">Duração do Filme</label>
+                <label for="class">Classificação Indicativa</label>
+                <input type="number" name="classificacao" id="class" value="<%= resultado.getString("classificacao")%>">
+            </p>
+            <p>
+                <label for="lan">Ano de lançamento</label>
+                <input type="number" name="lancamento" id="lan" value="<%= resultado.getString("lancamento")%>">
+            </p>
+            <p>
+                <label for="duracao">DDuração do Filme em Minutos</label>
                 <input type="number" name="duracao" id="duracao" value="<%= resultado.getString("duracao")%>">
             </p>              
             <p>

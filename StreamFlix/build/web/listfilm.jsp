@@ -27,7 +27,9 @@
             <div class="container">
                 <form method="get" action="confilm.jsp"> 
                     <label for="nome">Pesquise o filme: </label>
-                    <input type="text" name="nome" id="nome" placeholder="nome do filme" required>
+                    <input type="text" name="nome" id="nome" placeholder="nome do filme">
+                    <input type="text" name="genero" id="genero" placeholder="genero do filme">
+                    <input type="text" name="classificacao" id="classificacao" placeholder="classificacao do filme">
                     <input type="submit" value="Consultar">
                 </form>
             </div>
