@@ -12,9 +12,8 @@
     <body>
         <%
             //Receber os dados digitados no formulário cadfilm.html
-            int c, l, i, d;
+            int l, i, d;
             String n, g;
-            c = Integer.parseInt(request.getParameter("codigo"));
             n = request.getParameter("nome");
             g = request.getParameter("genero");
             i = Integer.parseInt(request.getParameter("classificacao"));
@@ -27,13 +26,12 @@
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conecta = DriverManager.getConnection("jdbc:mysql://localhost:3306/filme", "root", "060705");
                 //Inserir os dados na tabela produto do banco de dados aberto
-                st = conecta.prepareStatement("INSERT INTO filmes VALUES(?,?,?,?,?,?)");
-                st.setInt(1, c);
-                st.setString(2, n);
-                st.setString(3, g);
-                st.setInt(4, i);
-                st.setInt(5, l);
-                st.setInt(6, d);
+                st = conecta.prepareStatement("INSERT INTO filmes(nome, genero, classificacao, lancamento, duracao) VALUES(?,?,?,?,?)");
+                st.setString(1, n);
+                st.setString(2, g);
+                st.setInt(3, i);
+                st.setInt(4, l);
+                st.setInt(5, d);
                 st.executeUpdate(); //Executa o comando INSERT
                 out.print("<p class='success-message'>Filme cadastrado com sucesso</p>");
             } catch (Exception x) {
