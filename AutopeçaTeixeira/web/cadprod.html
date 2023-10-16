@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de Produtos</title>
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="cadprod.css"/>
+    </head>
+    <body>
+        <form method="post" action="cadprod.jsp">
+            <p>
+                <label for="cod">Código</label>
+                <input type="number" name="codigo" id="cod" required>
+            </p>
+            <p>
+                <label for="nom">Nome do Produto</label>
+                <input type="text" name="nome" id="nom" size="50" maxlength="50" required>
+            </p>
+            <p>
+                <label for="mar">Marca:</label>
+                <input type="text" name="marca" id="mar" size="40" maxlength="50">
+            </p>
+            <p>
+                <label for="pre">preço:</label>
+                <input type="number" step="0.1" name="preco" id="pre" required="">
+            </p>
+
+            <p>
+                <input type="submit" value="Salvar">
+            </p>
+        </form>
+    </body>
+</html> 

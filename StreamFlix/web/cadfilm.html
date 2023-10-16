@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de Filmes</title>
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="cadfilm.css"/>
+    </head>
+    <body>
+        <form method="post" action="cadfilm.jsp">
+            <p>
+                <label for="cod">Código do Filme</label>
+                <input type="number" name="codigo" id="cod" required>
+            </p>
+            <p>
+                <label for="nom">Nome do Filme</label>
+                <input type="text" name="nome" id="nom" size="50" maxlength="50" required>
+            </p>
+            <p>
+                <label for="gen">Gênero do Filme</label>
+                <input type="text" name="genero" id="gen" size="50" maxlength="50">
+            </p>
+            <p>
+                <label for="class">Classificação Indicativa</label>
+                <input type="number" name="classificacao" id="class">
+            </p>
+            <p>
+                <label for="lan">Ano de lançamento</label>
+                <input type="number" name="lancamento" id="lan">
+            </p>
+            <p>
+                <label for="dur">Duração do Filme</label>
+                <input type="number" name="duracao" id="dur">
+            </p>
+
+            <p>
+                <input type="submit" value="Salvar">
+            </p>
+        </form>
+    </body>
+</html> 
