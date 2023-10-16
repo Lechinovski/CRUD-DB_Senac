@@ -38,8 +38,11 @@
             <tr>
                 <th>Código</th><th>Nome do Filme</th><th>Gênero do Filme</th><th>Classificação Indicativa</th><th>Ano de lançamento</th><th>Duração do Filme</th>
             </tr>
-            <%
-                while (rs.next()) {
+            <%                
+                    while (rs.next()) {
+                    int duracaoMinutos = Integer.parseInt(rs.getString("duracao"));
+                    int horas = duracaoMinutos / 60;
+                    int minutos = duracaoMinutos % 60;
             %>
             <tr>
                 <td><%= rs.getString("codigo")%></td>
@@ -47,8 +50,7 @@
                 <td><%= rs.getString("genero")%></td>
                 <td><%= rs.getString("classificacao")%> anos</td>
                 <td><%= rs.getString("lancamento")%></td>
-                <td><%= rs.getString("duracao")%> minutos</td>
-
+                <td><%= horas%> horas <%= minutos%> minutos</td>
             </tr>
 
             <%
