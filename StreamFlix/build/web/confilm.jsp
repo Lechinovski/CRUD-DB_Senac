@@ -14,7 +14,6 @@
         <%
             //Recebendo o nome do produto
             String n = request.getParameter("nome");
-            String g = request.getParameter("genero");
             int c = Integer.parseInt(request.getParameter("classificacao"));
 
             try { // Tratamento de exceções
@@ -23,10 +22,9 @@
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection conecta = DriverManager.getConnection("jdbc:mysql://localhost:3306/filme", "root", "060705");
 
-                PreparedStatement st = conecta.prepareStatement("SELECT * FROM filmes WHERE nome like ? and genero like ? and classificacao like ?");
-                st.setString(1, "%" + n + "%");
-                st.setString(2, "%" + g + "%");
-                st.setString(3, "%" + c + "%");
+                PreparedStatement st = conecta.prepareStatement("SELECT * FROM filmes WHERE nome like ? and classificacao like ?");
+                st.setString(1, "%" + n + "%"); 
+                st.setString(2, "%" + c + "%");
                 ResultSet rs = st.executeQuery();
 
         %>
@@ -35,7 +33,6 @@
                 <form method="get" action="confilm.jsp"> 
                     <label for="nome">Pesquise o filme: </label>
                     <input type="text" name="nome" id="nome" placeholder="nome do filme">
-                    <input type="text" name="genero" id="genero" placeholder="genero do filme">
                     <input type="text" name="classificacao" id="classificacao" placeholder="classificacao do filme">
                     <input type="submit" value="Consultar">
                 </form>
